@@ -1,0 +1,132 @@
+{
+    "instruction": "Template Instruction 2",
+    "boxes": [
+        {
+            "position": [
+                "0.15",
+                "0.2",
+                "0.0"
+            ],
+            "width": "0.01",
+            "height": "0.01",
+            "label": "TempBox3",
+            "fill_color": {
+                "r": "0.7",
+                "g": "0.7",
+                "b": "0.7",
+                "a": "0.7"
+            },
+            "border_color": {
+                "r": "1.0",
+                "g": "1.0",
+                "b": "1.0",
+                "a": "1.0"
+            }
+        },
+        {
+            "position": [
+                "0.15",
+                "0.2",
+                "0.0"
+            ],
+            "width": "0.02",
+            "height": "0.05",
+            "label": "TempBox4",
+            "fill_color": {
+                "r": "0.7",
+                "g": "0.7",
+                "b": "0.7",
+                "a": "0.7"
+            },
+            "border_color": {
+                "r": "1.0",
+                "g": "1.0",
+                "b": "1.0",
+                "a": "1.0"
+            }
+        }
+    ],
+    "images": [
+        {
+            "position": [
+                "-0.35",
+                "0.15",
+                "0.0"
+            ],
+            "width": "750.0",
+            "height": "1000.0",
+            "path": "/ros_files/coord.png"
+        },
+        {
+            "position": [
+                "0.1",
+                "0.23",
+                "0.0"
+            ],
+            "width": "100.0",
+            "height": "100.0",
+            "path": "/catkin_ws/src/tum_ros/tum_ar/tum_ar_window/images/shop4cf.svg"
+        }
+    ],
+    "pois": [
+        {
+            "position": [
+                "0.3",
+                "0.2",
+                "0.0"
+            ],
+            "radius": "0.03",
+            "label": "Circle3",
+            "fill_color": {
+                "r": "0.7",
+                "g": "0.7",
+                "b": "0.7",
+                "a": "0.7"
+            },
+            "border_color": {
+                "r": "1.0",
+                "g": "1.0",
+                "b": "1.0",
+                "a": "1.0"
+            }
+        },
+        {
+            "position": [
+                "0.5",
+                "-0.2",
+                "0.0"
+            ],
+            "radius": "0.01",
+            "label": "circle4",
+            "fill_color": {
+                "r": "0.7",
+                "g": "0.7",
+                "b": "0.7",
+                "a": "0.7"
+            },
+            "border_color": {
+                "r": "1.0",
+                "g": "1.0",
+                "b": "1.0",
+                "a": "1.0"
+            }
+        }
+    ],
+    "outcomes": [
+        {
+            "name": "2-success",
+            "type": "2",
+            "id": "2"
+        },
+        {
+            "name": "3-warn",
+            "type": "3",
+            "id": "3"
+        },
+        {
+            "name": "4-error",
+            "type": "4",
+            "id": "4"
+        }
+    ]
+}

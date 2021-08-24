@@ -1,0 +1,5 @@
+{
+    "containerName": "fiware-orion-ld",
+    "projectName": "bos-uc1",
+    "IP_fiware-orion-ld": "172.19.1.1"
+}
