@@ -66,6 +66,7 @@ There are 4 types of commands for AR-CVI:
 <li>AddTemplate: Similar to Add, this commands adds the given instructions provided with a pre-defined json template.</li>
 <li>ResetTemplate: Similar to Reset, this command clears the screen and displays the instructions provided with a pre-defined json template.</li>
 </ol>
+
 ## Instruction types
 
 The supported instruction types are listed below:
