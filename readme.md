@@ -67,7 +67,8 @@ There are 4 types of commands for AR-CVI:
 <li>ResetTemplate: Similar to Reset, this command clears the screen and displays the instructions provided with a pre-defined json template.</li>
 </ol>
 ## Instruction types
-he supported instruction types are listed below:
+
+The supported instruction types are listed below:
 <ol>
 <li>Written instructions</li>
 Written instruction is displayed at the bottom of the screen. Defined with`"instruction":"Written instruction to be displayed"`. 
