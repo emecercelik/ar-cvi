@@ -27,6 +27,8 @@ The configuration information is given below:
 
 `<task_number>` is not specifically read by AR-CVI, but it is to avoid any conflicts due to tasks published with the same id.
 
+`IP_fiware-orion-ld` can be also specified as `auto`. In this case, the component will check `FIWARE_ORION_ID` environment variable, which is passed to the container with the `arcvi_run.sh` script. 
+
 # Docker image
 
 `arcvi_run.sh` starts the container and the AR-CVI component. AR-CVI is installed in `emecercelik/ar-cvi:ar-cvi_v1` image, which can be downloaded from docker hub with `docker pull emecercelik/ar-cvi:cvi_v1`.
@@ -66,6 +68,8 @@ There are 4 types of commands for AR-CVI:
 <li>AddTemplate: Similar to Add, this commands adds the given instructions provided with a pre-defined json template.</li>
 <li>ResetTemplate: Similar to Reset, this command clears the screen and displays the instructions provided with a pre-defined json template.</li>
 </ol>
+
+An example of AddTemplate message type can be seen in [ar-cvi_addtemplate_example.pdf](ar-cvi_addtemplate_example.pdf) pdf document. In this pdf, examples of AddTemplate message and the template are shown with their effects on the screen. 
 
 ## Instruction types
 
