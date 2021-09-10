@@ -38,6 +38,7 @@ The configuration information is given below:
 ```bash
 configs=<Path to the folder where configuration files are kept in HOST>
 templates=<Path to the folder where AR-CVI projection templates are kept in HOST>
+FIWARE_ORION_ID=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' fiware-orion-ld)
 
 xhost local:root
 docker run -it --rm 	-v $configs:/configs \
@@ -47,13 +48,14 @@ docker run -it --rm 	-v $configs:/configs \
 			--privileged \
 			--env="DISPLAY" \
 			--env="QT_X11_NO_MITSHM=1" \
+			--env="FIWARE_ORION_ID=${FIWARE_ORION_ID}" \
 			--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 			emecercelik/ar-cvi:ar-cvi_v1
 
 xhost -local:root
 ```
 
-`configs` host path should contain `arcvi-fiware-config.json` configuration file. The `$configs` should be mounted in `/configs` inside the container as indicated. `$templates` contains the json templates for AR-CVI to project pre-defined displays or instructions. The `$templates` host folder should be mounted in `/templates` inside the container as shown. The network bridge that the container connects to is indicated with `--net` flag. The `RAMP-IoU-LD/install.sh` script sets up `ramp-iot-ld_default` network. The AR-CVI can communicate using FIWARE messages through this network.
+`configs` host path should contain `arcvi-fiware-config.json` configuration file. The `$configs` should be mounted in `/configs` inside the container as indicated. `$templates` contains the json templates for AR-CVI to project pre-defined displays or instructions. The `$templates` host folder should be mounted in `/templates` inside the container as shown. The network bridge that the container connects to is indicated with `--net` flag. The `RAMP-IoU-LD/install.sh` script sets up `ramp-iot-ld_default` network. The AR-CVI can communicate using FIWARE messages through this network. `FIWARE_ORION_ID` environment variable is passed to the docker container to get fiware-orion-ld IP address and use it automatically while making `GET` requests.
 
 `--privileged`, `--env="DISPLAY"`, `--env="QT_X11_NO_MITSHM=1"`, `--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"` tags and xhost commands are necessary for using screen with the docker container.
 
