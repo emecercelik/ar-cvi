@@ -137,7 +137,29 @@ Outcome buttons are information buttons shown at the bottom of the screen.
 "id": "0"
 }
 ```
-`name` is the label shown on the button. `type` indicates the button type, which are default (gray), info (blue), success (green), warn (orange), and error (red) with indicated colors. `id` is the id given to that button. 
+`name` is the label shown on the button. `type` indicates the button type, which are default (gray color, type:0), info (blue color, type:1), success (green color, type:2), warn (orange color, type:3), and error (red color, type:4) with indicated colors. `id` is the id given to that button. 
+
+When the button is pressed, a fiware message containing `name`, `type`, and `id` will be sent to the context broker. An example is given below:
+
+```json
+curl -iX POST 'http://<fiware_ip>:1026/ngsi-ld/v1/entities' 
+	-H 'Content-Type: application/ld+json' 
+	-d '{	"id": "urn:ngsi-ld:Task:<project_name>:arcvi_ui<task_id>,
+		"type": "Task",    
+		"workParameters": {
+			"type":"Property",
+			"value": {	"uiName":<button.name>,
+					"uiType":<button.type>, 
+					"uiId":<button.id>
+					}
+					},
+		"outputParameters": {	"type": "Property",
+					"value": {"materialsAlreadyTransported": 0,"percentageCompleted": 0},
+					"observedAt": "2020-12-01T11:23:19Z"},
+		"@context": ["https://smartdatamodels.org/context.jsonld","https://raw.githubusercontent.com/shop4cf/data-models/master/docs/shop4cfcontext.jsonld"]
+		}'
+```
+Subscribers to this Task model can read the message and use the message as a trigger checking the `uiName` attribute, which is defined while preparing the display Task messages above.
 </ol>
 
 
