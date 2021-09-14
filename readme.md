@@ -141,7 +141,7 @@ Outcome buttons are information buttons shown at the bottom of the screen.
 
 When the button is pressed, a fiware message containing `name`, `type`, and `id` will be sent to the context broker. An example is given below:
 
-```json
+```bash
 curl -iX POST 'http://<fiware_ip>:1026/ngsi-ld/v1/entities' 
     -H 'Content-Type: application/ld+json' 
     -d '{"id": "urn:ngsi-ld:Task:<project_name>:arcvi_ui<task_id>,
