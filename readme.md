@@ -127,7 +127,7 @@ Points are circles displayed on the screen defined as seen below. `position` ind
 
 Multiple points can be defined by appending multiple point dictionaries to a list.
 
-<li>Outcome buttons</li>
+<li>Outcome buttons (User input)</li>
 Outcome buttons are information buttons shown at the bottom of the screen.
 
 ```json
@@ -159,6 +159,7 @@ curl -iX POST 'http://<fiware_ip>:1026/ngsi-ld/v1/entities'
 		"@context": ["https://smartdatamodels.org/context.jsonld","https://raw.githubusercontent.com/shop4cf/data-models/master/docs/shop4cfcontext.jsonld"]
 		}'
 ```
+
 Subscribers to this Task model can read the message and use the message as a trigger checking the `uiName` attribute, which is defined while preparing the display Task messages above.
 </ol>
 
