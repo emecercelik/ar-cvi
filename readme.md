@@ -63,10 +63,10 @@ Please refer to [ref1](https://github.com/ros-visualization/rviz/issues/1522), [
  
 Please follow steps below to run AR-CVI on Windows WSL 2.
 <ol>
-<li>[Windows 10 WSL 2 Installation](#install_wsl)</li>
-<li>[Docker Desktop WSL 2 Backend Installation](#install_docker)</li>
-<li>[VcXsrv Windows X Server Installation and Configuration](#install_xserver)</li>
-<li>[Running AR-CVI on Windows WSL 2 for Ubuntu](#run_arcvi)</li>
+<li> [Windows 10 WSL 2 Installation](#install_wsl)</li>
+<li> [Docker Desktop WSL 2 Backend Installation](#install_docker)</li>
+<li> [VcXsrv Windows X Server Installation and Configuration](#install_xserver)</li>
+<li> [Running AR-CVI on Windows WSL 2 for Ubuntu](#run_arcvi)</li>
 </ol>
 
 ### <a name="install_wsl"></a>Windows 10 WSL 2 Installation 
@@ -79,6 +79,7 @@ The Windows X Server is required to be able to connect to the display. VcXsrv ca
 <img src="figures/xserver/2.png" alt="X Server installation 2"/>
 <img src="figures/xserver/3.png" alt="X Server installation 3"/>
 <img src="figures/xserver/4.png" alt="X Server installation 4"/>
+
 At the last step please save the configuration file in one of the following paths:
 
 ```bash
