@@ -74,9 +74,13 @@ You can install WSL 2 by following the [documentation](https://docs.microsoft.co
 Docker Desktop WSL 2 Backend can be installed by following this [documentation](https://docs.docker.com/desktop/windows/wsl/). The prerequisites in the document should be followed and the WSL 2 support must be checked when asked during the installation.
 ### <a name="install_xserver"></a>VcXsrv Windows X Server Installation and Configuration
 The Windows X Server is required to be able to connect to the display. VcXsrv can be installed [here](https://sourceforge.net/projects/vcxsrv/) following the images below for the configuration. Also, the installation steps are similar to the steps given [here](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde) with a few vital differences. 
+
 <img src="figures/xserver/1.png" alt="X Server installation 1" width="390" height="300"/>
+
 <img src="figures/xserver/2.png" alt="X Server installation 2" width="390" height="300"/>
+
 <img src="figures/xserver/3.png" alt="X Server installation 3" width="390" height="300"/>
+
 <img src="figures/xserver/4.png" alt="X Server installation 4" width="390" height="300"/>
 
 At the last step please save the configuration file in one of the following paths:
