@@ -30,7 +30,7 @@ The configuration information is given below:
 `IP_fiware-orion-ld` can be also specified as `auto`. In this case, the component will check `FIWARE_ORION_ID` environment variable, which is passed to the container with the `arcvi_run.sh` script. 
 
 # Docker image
-
+## <a name="docker_ubuntu"></a>Ubuntu
 `arcvi_run.sh` starts the container and the AR-CVI component. AR-CVI is installed in `emecercelik/ar-cvi:ar-cvi_v1` image, which can be downloaded from docker hub with `docker pull emecercelik/ar-cvi:cvi_v1`.
  
 `arcvi_run.sh` starts the container ensuring the following setup:
@@ -58,6 +58,58 @@ xhost -local:root
 `configs` host path should contain `arcvi-fiware-config.json` configuration file. The `$configs` should be mounted in `/configs` inside the container as indicated. `$templates` contains the json templates for AR-CVI to project pre-defined displays or instructions. The `$templates` host folder should be mounted in `/templates` inside the container as shown. The network bridge that the container connects to is indicated with `--net` flag. The `RAMP-IoU-LD/install.sh` script sets up `ramp-iot-ld_default` network. The AR-CVI can communicate using FIWARE messages through this network. `FIWARE_ORION_ID` environment variable is passed to the docker container to get fiware-orion-ld IP address and use it automatically while making `GET` requests.
 
 `--privileged`, `--env="DISPLAY"`, `--env="QT_X11_NO_MITSHM=1"`, `--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw"` tags and xhost commands are necessary for using screen with the docker container.
+## Windows WSL 2
+Please refer to [ref1](https://github.com/ros-visualization/rviz/issues/1522), [ref2](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde), and [ref3](http://marinerobotics.gtorg.gatech.edu/running-ros-with-gui-in-docker-using-windows-subsystem-for-linux-2-wsl2/) for the solutions explained below.
+ 
+Please follow steps below to run AR-CVI on Windows WSL 2.
+<ol>
+<li>[Windows 10 WSL 2 Installation](#install_wsl)</li>
+<li>[Docker Desktop WSL 2 Backend Installation](#install_docker)</li>
+<li>[VcXsrv Windows X Server Installation and Configuration](#install_xserver)</li>
+<li>[Running AR-CVI on Windows WSL 2 for Ubuntu](#run_arcvi)</li>
+</ol>
+
+### <a name="install_wsl"></a>Windows 10 WSL 2 Installation 
+You can install WSL 2 by following the [documentation](https://docs.microsoft.com/en-us/windows/wsl/install) for the default Linux distribution, which is Ubuntu. Running AR-CVI is only tested with Ubuntu running under WSL 2. 
+### <a name="install_docker"></a>Docker Desktop WSL 2 Backend Installation
+Docker Desktop WSL 2 Backend can be installed by following this [documentation](https://docs.docker.com/desktop/windows/wsl/). The prerequisites in the document should be followed and the WSL 2 support must be checked when asked during the installation.
+### <a name="install_xserver"></a>VcXsrv Windows X Server Installation and Configuration
+The Windows X Server is required to be able to connect to the display. VcXsrv can be installed [here](https://sourceforge.net/projects/vcxsrv/) following the images below for the configuration. Also, the installation steps are similar to the steps given [here](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde) with a few vital differences. 
+<img src="figures/xserver/1.png" alt="X Server installation 1"/>
+<img src="figures/xserver/2.png" alt="X Server installation 2"/>
+<img src="figures/xserver/3.png" alt="X Server installation 3"/>
+<img src="figures/xserver/4.png" alt="X Server installation 4"/>
+At the last step please save the configuration file in one of the following paths:
+
+```bash
+%appdata%\Xming
+%userprofile%\Desktop
+%userprofile%
+
+``` 
+
+### <a name="run_arcvi"></a> Running AR-CVI on Windows WSL 2 for Ubuntu
+Similar to the [Ubuntu](#ubuntu_docker) version, you can create the necessary folders: `configs` and `templates`. 
+
+Please run the following script or `arcvi_run_win.sh` to start AR-CVI. 
+
+```bash
+configs=<Path to the folder where configuration files are kept in HOST>
+templates=<Path to the folder where AR-CVI projection templates are kept in HOST>
+images=<Path to the folder where images given in templates are kept in the HOST machine>
+
+FIWARE_ORION_ID=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' fiware-orion-ld)
+
+docker run -it --rm     -v $configs:/configs \
+                        -v $templates:/templates\
+                        -v $images:/images \
+                        --name ar-cvi \
+                        --net=ramp-iot-ld_default \
+                        --privileged \
+                        -e DISPLAY=host.docker.internal:0.0 -e LIBGL_ALWAYS_INDIRECT= \
+                        --env="FIWARE_ORION_ID=${FIWARE_ORION_ID}" \
+                        emecercelik/ar-cvi:ar-cvi_v1
+``` 
 
 # Message Format
 
