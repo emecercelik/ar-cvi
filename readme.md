@@ -62,12 +62,11 @@ xhost -local:root
 Please refer to [ref1](https://github.com/ros-visualization/rviz/issues/1522), [ref2](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde), and [ref3](http://marinerobotics.gtorg.gatech.edu/running-ros-with-gui-in-docker-using-windows-subsystem-for-linux-2-wsl2/) for the solutions explained below.
  
 Please follow steps below to run AR-CVI on Windows WSL 2.
-<ol>
-<li> [Windows 10 WSL 2 Installation](#install_wsl)</li>
-<li> [Docker Desktop WSL 2 Backend Installation](#install_docker)</li>
-<li> [VcXsrv Windows X Server Installation and Configuration](#install_xserver)</li>
-<li> [Running AR-CVI on Windows WSL 2 for Ubuntu](#run_arcvi)</li>
-</ol>
+
+- [Windows 10 WSL 2 Installation](#install_wsl) 
+- [Docker Desktop WSL 2 Backend Installation](#install_docker) 
+- [VcXsrv Windows X Server Installation and Configuration](#install_xserver) 
+- [Running AR-CVI on Windows WSL 2 for Ubuntu](#run_arcvi) 
 
 ### <a name="install_wsl"></a>Windows 10 WSL 2 Installation 
 You can install WSL 2 by following the [documentation](https://docs.microsoft.com/en-us/windows/wsl/install) for the default Linux distribution, which is Ubuntu. Running AR-CVI is only tested with Ubuntu running under WSL 2. 
@@ -75,10 +74,10 @@ You can install WSL 2 by following the [documentation](https://docs.microsoft.co
 Docker Desktop WSL 2 Backend can be installed by following this [documentation](https://docs.docker.com/desktop/windows/wsl/). The prerequisites in the document should be followed and the WSL 2 support must be checked when asked during the installation.
 ### <a name="install_xserver"></a>VcXsrv Windows X Server Installation and Configuration
 The Windows X Server is required to be able to connect to the display. VcXsrv can be installed [here](https://sourceforge.net/projects/vcxsrv/) following the images below for the configuration. Also, the installation steps are similar to the steps given [here](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde) with a few vital differences. 
-<img src="figures/xserver/1.png" alt="X Server installation 1"/>
-<img src="figures/xserver/2.png" alt="X Server installation 2"/>
-<img src="figures/xserver/3.png" alt="X Server installation 3"/>
-<img src="figures/xserver/4.png" alt="X Server installation 4"/>
+<img src="figures/xserver/1.png" alt="X Server installation 1" width="390" height="300"/>
+<img src="figures/xserver/2.png" alt="X Server installation 2" width="390" height="300"/>
+<img src="figures/xserver/3.png" alt="X Server installation 3" width="390" height="300"/>
+<img src="figures/xserver/4.png" alt="X Server installation 4" width="390" height="300"/>
 
 At the last step please save the configuration file in one of the following paths:
 
