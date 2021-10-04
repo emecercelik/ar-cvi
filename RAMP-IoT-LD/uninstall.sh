@@ -27,7 +27,7 @@ docker rm $(docker ps -aq)
 echo '####################################################'
 echo 'Removing images ...'
 echo '####################################################'
-docker rmi $(docker images -q)
+#docker rmi $(docker images -q)
 
 # remove all stray volumes if any
 echo '####################################################'
@@ -35,7 +35,7 @@ echo 'Revoming docker container volumes (if any)'
 echo '####################################################'
 docker volume rm $(docker volume ls -q)
 
-docker system prune -a
+#docker system prune -a
 
 DATA_PATH="/var/RAMP-IoT"
 rm -rf $DATA_PATH
