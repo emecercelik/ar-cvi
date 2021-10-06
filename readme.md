@@ -19,19 +19,22 @@ The configuration information is given below:
 ```json
 {
     "projectName": "bos-uc1",
-    "IP_fiware-orion-ld": "172.19.1.1"
+    "IP_fiware-orion-ld": "172.19.1.1",
+    "checkStatus": false
 }
 ```
 
-`projectName` is a use-case specific name that will be read from the context id. The id is in `urn:ngsi-ld:Task:<projectName>:task<task_number>` format (An example: `urn:ngsi-ld:Task:bos-uc1:task0013`). 
+`projectName` is a use-case specific name that will be read from the context id. The id is in `urn:ngsi-ld:Task:<projectName>:task<task_number>` format (An example: `urn:ngsi-ld:Task:bos-uc1:task0013` or `urn:ngsi-ld:Task:bos-uc1:task0123xTyaw987`). 
 
 `<task_number>` is not specifically read by AR-CVI, but it is to avoid any conflicts due to tasks published with the same id.
 
-`IP_fiware-orion-ld` can be also specified as `auto`. In this case, the component will check `FIWARE_ORION_ID` environment variable, which is passed to the container with the `arcvi_run.sh` script. 
+`IP_fiware-orion-ld` can be also specified as `auto`. In this case, the component will check `FIWARE_ORION_ID` environment variable, which is passed to the container with the `arcvi_run.sh` script. That environment variable is filled by the IP Address of the `fiware-orion-ld` container to communicate with the context broker. It is recommended to set this as `auto` if the `install.sh` is used to start Fiware containers. 
+
+`checkStatus` is to check the status of the Fiware message. If `true`, AR-CVI displays only the `Tasks` with the `inProgress` status. Otherwise, the component displays the published tasks with the given `<project_name>` tag in the context id. 
 
 # Docker image
 ## <a name="docker_ubuntu"></a>Ubuntu
-`arcvi_run.sh` starts the container and the AR-CVI component. AR-CVI is installed in `emecercelik/ar-cvi:ar-cvi_v1` image, which can be downloaded from docker hub with `docker pull emecercelik/ar-cvi:cvi_v1`.
+`arcvi_run.sh` starts the container and the AR-CVI component. AR-CVI is installed in `emecercelik/ar-cvi:ar-cvi_v1` image, which can be downloaded from docker hub with `docker pull emecercelik/ar-cvi:ar-cvi_v1`.
  
 `arcvi_run.sh` starts the container ensuring the following setup:
  
