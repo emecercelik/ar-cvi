@@ -1,6 +1,8 @@
 {
     "containerName": "fiware-orion-ld",
-    "projectName": "bos-uc1",
+    "projectName": "siemens",
     "IP_fiware-orion-ld": "auto",
-    "checkStatus": false
+    "checkStatus": false,
+    "checkRelationship": false,
+    "relationshipObject": "urn:ngsi-ld:Device:siemens:projector"
 }
