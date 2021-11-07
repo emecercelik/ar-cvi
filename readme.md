@@ -20,7 +20,9 @@ The configuration information is given below:
 {
     "projectName": "bos-uc1",
     "IP_fiware-orion-ld": "172.19.1.1",
-    "checkStatus": false
+    "checkStatus": false,
+    "checkRelationship": false,
+    "relationshipObject": "urn:ngsi-ld:Device:siemens:projector"
 }
 ```
 
@@ -30,7 +32,11 @@ The configuration information is given below:
 
 `IP_fiware-orion-ld` can be also specified as `auto`. In this case, the component will check `FIWARE_ORION_ID` environment variable, which is passed to the container with the `arcvi_run.sh` script. That environment variable is filled by the IP Address of the `fiware-orion-ld` container to communicate with the context broker. It is recommended to set this as `auto` if the `install.sh` is used to start Fiware containers. 
 
-`checkStatus` is to check the status of the Fiware message. If `true`, AR-CVI displays only the `Tasks` with the `inProgress` status. Otherwise, the component displays the published tasks with the given `<project_name>` tag in the context id. 
+`checkStatus` is to check the status of the Fiware message. If `true`, AR-CVI displays only the `Tasks` with the `inProgress` status. Otherwise, the component displays the published tasks with the given `<project_name>` tag in the context id. When the status is changed to `complete`, the display will stop. 
+
+`checkRelationship` is to check the `Relationship` attribute of `involves` in the Data Model. If `checkRelationship` is `true` and the attribute in the fiware message matches with the config's `relationshipObject`, the content of the message will be displayed. This is to ensure that the fiware message aims the AR-CVI component. 
+
+`relationshipObject` defines the `Relationship` attribute's value. 
 
 # Docker image
 ## <a name="docker_ubuntu"></a>Ubuntu
@@ -88,19 +94,19 @@ The Windows X Server is required to be able to connect to the display. VcXsrv ca
 
 At the last step please save the configuration file in one of the following paths:
 
-```bash
+```
 %appdata%\Xming
 %userprofile%\Desktop
 %userprofile%
 
-``` 
+```
 
 ### <a name="run_arcvi"></a> Running AR-CVI on Windows WSL 2 for Ubuntu
 Similar to the [Ubuntu](#ubuntu_docker) version, you can create the necessary folders: `configs` and `templates`. 
 
 Please run the following script or `arcvi_run_win.sh` to start AR-CVI. 
 
-```bash
+```
 configs=<Path to the folder where configuration files are kept in HOST>
 templates=<Path to the folder where AR-CVI projection templates are kept in HOST>
 images=<Path to the folder where images given in templates are kept in the HOST machine>
@@ -116,7 +122,7 @@ docker run -it --rm     -v $configs:/configs \
                         -e DISPLAY=host.docker.internal:0.0 -e LIBGL_ALWAYS_INDIRECT= \
                         --env="FIWARE_ORION_ID=${FIWARE_ORION_ID}" \
                         emecercelik/ar-cvi:ar-cvi_v1
-``` 
+```
 
 # Message Format
 
@@ -203,7 +209,7 @@ When the button is pressed, a fiware message containing `name`, `type`, and `id`
 ```bash
 curl -iX POST 'http://<fiware_ip>:1026/ngsi-ld/v1/entities' 
     -H 'Content-Type: application/ld+json' 
-    -d '{"id": "urn:ngsi-ld:Task:<project_name>:arcvi_ui<task_id>,
+    -d '{"id": "urn:ngsi-ld:Task:arcvi_ui<task_id>,
          "type": "Task",
          "workParameters": {
              "type":"Property",
