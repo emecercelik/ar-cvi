@@ -26,17 +26,17 @@ The configuration information is given below:
 }
 ```
 
-`projectName` is a use-case specific name that will be read from the context id. The id is in `urn:ngsi-ld:Task:<projectName>:task<task_number>` format (An example: `urn:ngsi-ld:Task:bos-uc1:task0013` or `urn:ngsi-ld:Task:bos-uc1:task0123xTyaw987`). 
+* `projectName` is a use-case specific name that will be read from the context id. The id is in `urn:ngsi-ld:Task:<projectName>:task<task_number>` format (An example: `urn:ngsi-ld:Task:bos-uc1:task0013` or `urn:ngsi-ld:Task:bos-uc1:task0123xTyaw987`). 
 
-`<task_number>` is not specifically read by AR-CVI, but it is to avoid any conflicts due to tasks published with the same id.
+* `<task_number>` is not specifically read by AR-CVI, but it is to avoid any conflicts due to tasks published with the same id.
 
-`IP_fiware-orion-ld` can be also specified as `auto`. In this case, the component will check `FIWARE_ORION_ID` environment variable, which is passed to the container with the `arcvi_run.sh` script. That environment variable is filled by the IP Address of the `fiware-orion-ld` container to communicate with the context broker. It is recommended to set this as `auto` if the `install.sh` is used to start Fiware containers. 
+* `IP_fiware-orion-ld` can be also specified as `auto`. In this case, the component will check `FIWARE_ORION_ID` environment variable, which is passed to the container with the `arcvi_run.sh` script. That environment variable is filled by the IP Address of the `fiware-orion-ld` container to communicate with the context broker. It is recommended to set this as `auto` if the `install.sh` is used to start Fiware containers. 
 
-`checkStatus` is to check the status of the Fiware message. If `true`, AR-CVI displays only the `Tasks` with the `inProgress` status. Otherwise, the component displays the published tasks with the given `<project_name>` tag in the context id. When the status is changed to `complete`, the display will stop. 
+* `checkStatus` is to check the status of the Fiware message. If `true`, AR-CVI displays only the `Tasks` with the `inProgress` status. Otherwise, the component displays the published tasks with the given `<project_name>` tag in the context id. When the status is changed to `complete`, the display will stop. 
 
-`checkRelationship` is to check the `Relationship` attribute of `involves` in the Data Model. If `checkRelationship` is `true` and the attribute in the fiware message matches with the config's `relationshipObject`, the content of the message will be displayed. This is to ensure that the fiware message aims the AR-CVI component. 
+* `checkRelationship` is to check the `Relationship` attribute of `involves` in the Data Model. If `checkRelationship` is `true` and the attribute in the fiware message matches with the config's `relationshipObject`, the content of the message will be displayed. This is to ensure that the fiware message aims the AR-CVI component. 
 
-`relationshipObject` defines the `Relationship` attribute's value. 
+* `relationshipObject` defines the `Relationship` attribute's value. 
 
 # Docker image
 ## <a name="docker_ubuntu"></a>Ubuntu
