@@ -1,0 +1,15 @@
+{
+    "instruction": "Subassembly Motor 1",
+    "images": [
+        {
+            "position": [
+                "-0.35",
+                "0.15",
+                "0.0"
+            ],
+            "width": "1066.0",
+            "height": "500.0",
+            "path": "/images/siemens/SubAssemblyMotor_1.PNG"
+        }
+    ]
+}

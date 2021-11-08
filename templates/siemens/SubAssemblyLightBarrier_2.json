@@ -1,0 +1,15 @@
+{
+    "instruction": "Subassembly Light Barrier 2",
+    "images": [
+        {
+            "position": [
+                "-0.35",
+                "0.15",
+                "0.0"
+            ],
+            "width": "1066.0",
+            "height": "500.0",
+            "path": "/images/siemens/SubAssemblyLightBarrier_2.PNG"
+        }
+    ]
+}

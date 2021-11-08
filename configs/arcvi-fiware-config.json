@@ -2,7 +2,7 @@
     "containerName": "fiware-orion-ld",
     "projectName": "siemens",
     "IP_fiware-orion-ld": "auto",
-    "checkStatus": false,
-    "checkRelationship": false,
+    "checkStatus": true,
+    "checkRelationship": true,
     "relationshipObject": "urn:ngsi-ld:Device:siemens:projector"
 }
