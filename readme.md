@@ -626,5 +626,5 @@ Template is a json file that contains display instructions in a formatted way. A
 
 # Release Notes
 * [19.04.2022] arcvi-1.1 
- * Fix overloaded context returns. Filtering context information is updated. 
+	* Fix overloaded context returns. Filtering context information is updated. 
 * ar-cvi_v1 [Initial]
