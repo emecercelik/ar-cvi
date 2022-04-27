@@ -1,3 +1,5 @@
+Deprecated! Please check the new repository [https://github.com/SHOP4CF/AR-CVI/](https://github.com/SHOP4CF/AR-CVI/).
+
 This guide explains the usage of AR-CVI component within the SHOP4CF EU project. 
 
 AR-CVI is a component to display instructions for a human worker. The display can be either on a screen or by projecting to a surface. The communication is via ROS messages or via FIWARE Orion Context Broker (with Linked Data Extensions). 
